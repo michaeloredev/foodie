@@ -15,6 +15,7 @@ export default function ImagePicker({ label, name }) {
     const file = e.target.files[0];
     if (!file) {
       setPickedImage(null);
+      return;
     }
 
     const fileReader = new FileReader();
@@ -37,6 +38,7 @@ export default function ImagePicker({ label, name }) {
           accept="image/png, image/jpg"
           ref={useImageRef}
           onChange={handleImageChange}
+          required
         />
         <div className={classes.preview}>
           <>
